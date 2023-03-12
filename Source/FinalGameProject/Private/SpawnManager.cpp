@@ -55,7 +55,11 @@ void ASpawnManager::Tick(float DeltaTime)
 		AEnemy* Enemy = Cast<AEnemy>(Actor);
 
 		// Changing Target Values
-		Enemy->MovementSpeed *= WaveDifficulty[CurrentWave - 1];
+		if (Enemy)
+		{
+			Enemy->MovementSpeed *= WaveDifficulty[CurrentWave - 1];
+		}
+		
 		LeftToSpawn--;
 		if (LeftToSpawn <= 0)
 		{
